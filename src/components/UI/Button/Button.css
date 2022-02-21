@@ -1,0 +1,29 @@
+.form-btn {
+  display: inline-block;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 40px;
+  padding: 10px 16px;
+  -webkit-transition: color 200ms ease;
+  transition: color 200ms ease;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  background: #ea4c89;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 20px;
+
+  background: #f3f3f4;
+  color: #0d0c22;
+  margin-left: 8px;
+}

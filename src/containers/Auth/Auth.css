@@ -1,0 +1,67 @@
+.main-container {
+  display: flex;
+}
+
+.auth-sidebar {
+  background: #f2d184;
+  color: #866118;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0;
+  width: 800px;
+  height: 100%;
+}
+
+.auth-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  overflow: auto;
+  width: 100%;
+}
+
+.form-field-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: inherit;
+  font-size: 100%;
+  font-style: inherit;
+  font-weight: inherit;
+  line-height: 1;
+  vertical-align: baseline;
+}
+
+.main {
+  align-items: stretch;
+  margin: 80px 0 0;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.auth-content {
+  margin: 0;
+  padding: 30px 60px 0;
+  width: 100%;
+  max-width: 800px;
+}
+
+.formHead {
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 38px;
+  margin-bottom: 26px;
+  text-align: left;
+}

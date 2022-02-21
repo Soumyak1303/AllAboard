@@ -1,0 +1,60 @@
+.input {
+  padding: 12px 0;
+  position: relative;
+  width: 100%;
+  margin-right: 8px;
+  border: 1px solid transparent;
+}
+
+.checkbox {
+  padding: 12px 0;
+  position: relative;
+  width: 100%;
+  margin-right: 8px;
+  border: 1px solid transparent;
+  display: flex;
+}
+
+.Label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.InputElement {
+  font: inherit;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 8px;
+  outline: none;
+  background-color: #f3f3f4;
+  height: 60px;
+  padding: 10px 16px;
+  color: #0d0c22;
+  border-color: transparent;
+}
+
+.InputElement:focus {
+  outline: none;
+  background-color: #ccc;
+}
+
+.Invalid {
+  border-color: rgb(253, 18, 18);
+}
+
+.form-field-group .input {
+  width: 48%;
+}
+
+.checkbox input {
+  height: 40px;
+  width: 40px;
+}
+
+.checkbox .Label {
+  margin-left: 10px;
+  font-weight: normal;
+}

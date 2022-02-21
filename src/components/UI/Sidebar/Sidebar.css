@@ -1,0 +1,30 @@
+.artwork {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
+.artwork .artwork-image {
+  min-height: 93vh;
+  background-image: url(/src/Resources/Images/sideImage.png);
+  flex-grow: 1;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: auto;
+}
+
+.artwork .artwork-attribution {
+  margin: 0;
+  padding: 25px 64px 35px;
+  color: inherit;
+  font-size: 19px;
+  line-height: 14px;
+  text-align: left;
+}
+
+.artwork a {
+  color: inherit;
+  text-decoration: underline;
+}

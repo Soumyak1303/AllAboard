@@ -8,7 +8,7 @@
 
 .artwork .artwork-image {
   min-height: 93vh;
-  background-image: url(/src/Resources/Images/sideImage.png);
+  background-image: url(/src/Resources/images/sideImage.png);
   flex-grow: 1;
   background-repeat: no-repeat;
   background-position: bottom center;

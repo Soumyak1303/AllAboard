@@ -2,10 +2,16 @@ import React from "react";
 import "./Input.css";
 
 const input = (props) => {
+  const inputChangeHandler = (event) => {
+    props.onChangeHandler({
+      value:
+        props.elementType === "checkbox"
+          ? event.target.checked
+          : event.target.value,
+      key: props.elementId,
+    });
+  };
   const inputClasses = ["InputElement"];
-  // if (props.shouldValidate && props.touched && props.invalid) {
-  //   inputClasses.push("Invalid");
-  // }
 
   return (
     <div className={`form-field ${props.elementType}`}>
@@ -19,7 +25,7 @@ const input = (props) => {
         className={inputClasses.join(" ")}
         {...props.elementConfig}
         value={props.value}
-        onChange={props.onChange}
+        onChange={(event) => inputChangeHandler(event)}
       />
       {props.elementType === "checkbox" && (
         <label

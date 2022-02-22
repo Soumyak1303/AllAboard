@@ -1,10 +1,13 @@
 import "./Navbar.css";
 
-const Navbar = () => {
+const Navbar = (props) => {
   return (
     <nav class="auth-nav">
       <p class="auth-link auth-register-container">
-        Already a member? <button class="form-btn">Sign In</button>
+        {props.isSignUp ? "Already a member?" : "Not a member?"}
+        <button onClick={props.onSwitchAuthModeHandler} class="form-btn">
+          {props.isSignUp ? "Sign In" : "Sign Up"}
+        </button>
       </p>
     </nav>
   );

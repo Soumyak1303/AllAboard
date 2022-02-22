@@ -5,71 +5,48 @@ import Button from "../../components/UI/Button/Button";
 import Sidebar from "../../components/UI/Sidebar/Sidebar";
 import Navbar from "../../components/UI/Navbar/Navbar";
 import Footer from "../../components/UI/Footer/Footer";
-import AuthFormElements from "../../Resources/FormElements/AuthFormElements";
+import { connect } from "react-redux";
+import onAuth from "../../store/actions/authActions";
+import signUpView from "../../Resources/views/signUpView";
+import ElementRenderer from "../Layout/ElementRenderer";
+import signInView from "../../Resources/views/signInView";
 
 class Auth extends Component {
   state = {
-    ...AuthFormElements(),
-    isSignUp: false,
-  };
-
-  getFormElements = (elements, parent) => {
-    const formElements = Object.keys(elements).map((key) => {
-      const elementProps = elements[key];
-      return (
-        <Input
-          key={key}
-          elementType={elementProps.elementType}
-          elementConfig={elementProps.elementConfig}
-          value={elementProps.value}
-          label={elementProps.label}
-          invalid={!elementProps.valid}
-          shouldValidate={elementProps.validations}
-          touched={elementProps.touched}
-          onChange={(event) => this.inputChangeHandler(event, key, parent)}
-        />
-      );
-    });
-    return formElements;
-  };
-
-  inputChangeHandler = (event, controlName, parent) => {
-    const updatedControls = {
-      ...this.state[parent],
-      [controlName]: {
-        ...this.state[parent][controlName],
-        value: event.target.value,
-        valid: true,
-        touched: true,
-      },
-    };
-    this.setState({ [parent]: updatedControls });
-    console.log(this.state);
+    isSignUp: true,
   };
 
   submitHandler = (event) => {
     event.preventDefault();
-    alert("yay!");
-    // this.props.onAuth(
-    //   this.state.controls.email.value,
-    //   this.state.controls.password.value,
-    //   this.state.isSignUp
-    // );
+    this.props.onAuth({
+      email: this.props.userData.email,
+      password: this.props.userData.password,
+      userName: this.props.userData.userName,
+      isSignUp: this.state.isSignUp,
+    });
+  };
+
+  onSwitchAuthModeHandler = () => {
+    this.setState((prevState) => {
+      return {
+        isSignUp: !prevState.isSignUp,
+      };
+    });
   };
 
   render() {
-    const userFields = this.getFormElements(this.state.user, "user");
-    const credentialFields = this.getFormElements(
-      this.state.credentials,
-      "credentials"
-    );
+    const view = this.state.isSignUp ? signUpView : signInView;
+    const elements = <ElementRenderer elements={view} />;
     return (
       <div className="main-container">
         <section className="auth-sidebar">
           <Sidebar />
         </section>
         <section className="auth-content">
-          <Navbar />
+          <Navbar
+            onSwitchAuthModeHandler={this.onSwitchAuthModeHandler}
+            isSignUp={this.state.isSignUp}
+          />
           <div className="main">
             <div className="auth-content">
               <h2 className="formHead">
@@ -77,8 +54,7 @@ class Auth extends Component {
               </h2>
               <div className="form">
                 <form onSubmit={this.submitHandler}>
-                  <div className="form-field-group">{userFields}</div>
-                  {credentialFields}
+                  {elements}
                   <Button btnType="Success">SUBMIT</Button>
                 </form>
                 <Footer />
@@ -91,4 +67,10 @@ class Auth extends Component {
   }
 }
 
-export default Auth;
+const mapStateToProps = (state) => {
+  return {
+    userData: state.layout.userData,
+  };
+};
+
+export default connect(mapStateToProps, { onAuth })(Auth);
